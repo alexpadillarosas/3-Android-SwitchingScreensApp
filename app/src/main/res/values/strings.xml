@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MySwitchingScreenApp</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="pre_text_user_name">Users name is: </string>
+</resources>
