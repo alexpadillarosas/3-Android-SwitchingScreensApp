@@ -1,7 +1,7 @@
 # 3-Android-SwitchingScreensApp
 This Android project shows a way to pass parameters between activities using Intents.
 
-If you want to pass objects between activities have a look at 3-Android-CreateYourBomb repository.
+If you want to pass objects between activities have a look at [3-Android-CreateYourBomb](https://github.com/alexpadillarosas/3-Android-CreateYourBomb)
 
 ## Important:
 if your activity opens a second activity and it does not wait for any upcoming values from the second activity, then use:
