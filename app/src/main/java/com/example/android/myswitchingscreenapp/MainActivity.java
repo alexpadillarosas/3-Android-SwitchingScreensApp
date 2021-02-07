@@ -8,14 +8,26 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.myswitchingscreenapp.databinding.ActivityMainBinding;
+
 import static com.example.android.myswitchingscreenapp.Constants.SECOND_SCREEN_REQUEST_CODE;
 
 public class MainActivity extends AppCompatActivity {
+
+    ActivityMainBinding activityMainBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //This is for the usage of viewBinding
+        /*
+        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = activityMainBinding.getRoot();
+        setContentView(view);
+        */
+
     }
 
 
@@ -49,9 +61,12 @@ public class MainActivity extends AppCompatActivity {
             //check if result was fine, could have been cancelled, if so the result code will be RESULT_CANCELED
             if(resultCode == RESULT_OK){
                 TextView usersNameMessage = findViewById(R.id.users_name_message);//this textView is in activity_main
+//                This is for the usage of viewBinding
+//                TextView usersNameMessage = activityMainBinding.usersNameMessage;
+
                 String nameSentBack = data.getStringExtra("UserName"); // data is where those extra values are now (which is an Intent anyway)
 
-                usersNameMessage.setText(getString(R.string.pre_text_user_name) + " " + nameSentBack);
+                usersNameMessage.setText(String.format("%s %s", getString(R.string.pre_text_user_name), nameSentBack));
             }
             else if (resultCode == RESULT_CANCELED){
                 Toast.makeText(this, "maybe you forgot to set the data back, check your child setResult() ", Toast.LENGTH_SHORT).show();
